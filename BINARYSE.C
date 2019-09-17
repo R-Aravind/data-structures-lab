@@ -28,6 +28,13 @@ void main(){
 		}
 	}
 
+	/*
+	printf("\nSorted Array");
+	for(i=0;i<n;i++){
+		printf("\n\t    %d",a[i]);
+	}
+	*/
+
 
 	printf("\nEnter element to be searched: ");
 	scanf("%d",&key);
@@ -41,10 +48,10 @@ void main(){
 			break;
 		}
 		else if(a[mid]>key){
-			upper = mid-1;
+			upper = mid;
 		}
 		else if(a[mid]<key){
-			lower = mid+1;
+			lower = mid;
 		}
 	}
 
