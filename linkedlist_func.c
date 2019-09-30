@@ -1,3 +1,7 @@
+/*
+Author By Akhil Ravindran
+github.com/ghostjson
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
