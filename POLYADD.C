@@ -14,20 +14,14 @@ void main(){
 	char ch;
 
 	pheader->link = NULL;
-	pheader->coeff = NULL;
-	pheader->exp = NULL;
 	qheader->link = NULL;
-	qheader->coeff = NULL;
-	qheader->exp = NULL;
 	rheader->link = NULL;
-	rheader->coeff = NULL;
-	rheader->exp = NULL;
 	clrscr();                                       // initialised
 
+	printf("POLYNOMIAL ADDITION");
 	//printf("\nEnter degree of first and second polynomial:\n");
 	//scanf("%d %d", &pdeg, &qdeg);
 
-	clrscr();
 	printf("\n Enter First polynomial:\n");
 	pptr = pheader;
 	/*
@@ -91,11 +85,11 @@ void main(){
 		exit(0);
 	}						// check if empty
 
-	pptr = pheader;
-	qptr = qheader;
+	pptr = pheader->link;
+	qptr = qheader->link;
 	rptr = rheader;
 
-	while(pptr->link!= NULL && qptr->link!= NULL) {	   // Same exponents
+	while(pptr != NULL && qptr != NULL) {	   // Same exponents
 		if(pptr->exp == qptr->exp) {
 			new = (struct node*) malloc(sizeof(struct node));
 			new->coeff = pptr->coeff + qptr->coeff;
@@ -107,7 +101,7 @@ void main(){
 			rptr = rptr->link;
 		}
 
-		else if(pptr->exp > qptr->exp) {
+		if(pptr->exp > qptr->exp) {
 			new = (struct node*) malloc(sizeof(struct node));
 			new->coeff = pptr->coeff;
 			new->exp = pptr->exp;
@@ -118,7 +112,7 @@ void main(){
 			rptr = rptr->link;
 		}
 
-		else if(pptr->exp < qptr->exp) {
+		if(pptr->exp < qptr->exp) {
 			new = (struct node*) malloc(sizeof(struct node));
 			new->coeff = qptr->coeff;
 			new->exp = qptr->exp;
@@ -130,7 +124,7 @@ void main(){
 		}
 	}
 
-	if(pptr->link != NULL && qptr->link == NULL) {	// if P(x) has more
+	if(pptr != NULL && qptr == NULL) {	// if P(x) has more
 		while(pptr->link!= NULL) {              // terms left
 			new = (struct node*) malloc(sizeof(struct node));
 			new->coeff = pptr->coeff;
@@ -143,7 +137,7 @@ void main(){
 		}
 	}
 
-	if(pptr->link== NULL && qptr->link!= NULL) {	// if Q(x) has more
+	if(pptr== NULL && qptr!= NULL) {	// if Q(x) has more
 		while(qptr->link!= NULL) {		// terms left
 			new = (struct node*) malloc(sizeof(struct node));
 			new->coeff = qptr->coeff;
@@ -160,7 +154,7 @@ void main(){
 
 	pptr = pheader;
 	qptr = qheader;
-	rptr = rheader->link;
+	rptr = rheader;
 
 	clrscr();
 	printf("\n Addition Complete \n");
