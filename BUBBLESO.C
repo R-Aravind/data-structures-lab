@@ -6,13 +6,13 @@ void main(){
 	int a[10],i,j,temp,n;
 	clrscr();
 
-	printf("\n\nEnter limit: ");
+	printf("\n\nEnter limit: "); /*enter the no of elements in the array */
 	scanf("%d",&n);
-	printf("\nEnter array:\n");
+	printf("\nEnter array:\n");  /*enter the elements */
 
 	for(i=0;i<n;i++){
 		printf("\t    ");
-		scanf("%d",&a[i]);
+		scanf("%d",&a[i]);     /*reading the array */
 	}
 
 	for(i=0;i<n-1;i++){
@@ -20,12 +20,12 @@ void main(){
 			if(a[j]>a[j+1]){
 				temp=a[j];
 				a[j]=a[j+1];
-				a[j+1]=temp;
+				a[j+1]=temp;   /*sorting the array */
 			}
 		}
 	}
 
-	printf("\nSorted Array:");
+	printf("\nSorted Array:");   /*printing the sorted array */
 	for(i=0;i<n;i++){
 		printf("\n\t    %d",a[i]);
 	}
