@@ -64,7 +64,7 @@ void main(){
 			new->data=x;
 			ptr->link=new;
 			break;
-		case 4: printf("\nEnter key: ");
+		case 4: printf("\nEnter key: "); //search
 			scanf("%d",&key);
 			ptr = header;
 			while(ptr->data!= key && ptr->link!=NULL){

@@ -18,7 +18,7 @@ void main(){
 	printf("\nEnter element to be searched: ");
 	scanf("%d",&key);
 
-	for(i=0;i<n;i++){
+	for(i=0;i<n;i++){		//searching begins
 		if(a[i]==key){
 			printf("\nElement found at\n index: %d",i);
 			printf("\n position: %d", i+1);
